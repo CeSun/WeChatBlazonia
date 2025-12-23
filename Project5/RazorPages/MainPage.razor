@@ -1,0 +1,102 @@
+﻿@using Avalonia.Controls
+@using Avalonia.Interactivity
+@using Avalonia.Layout
+@using Avalonia.Media
+@using Avalonia.Styling
+@using Project5.Components;
+@using Project5.RazorPages.SubPages;
+
+<Border>
+    <DockPanel>
+        @if(currentPage?.Title != "我")
+        {
+            <Border Height="40" Background="@("#EDEDED")" DockPanel.Dock="@Dock.Top" BorderBrush="@("#d8d8d8")" BorderThickness="(0, 0, 0, 0.3)">
+                <Panel>
+                    <StackPanel Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.Right">
+                        <Button Classes="wxButton" BorderThickness="0" Padding="(7.5, 0, 7.5, 0)" Background="@("#EDEDED")">
+                            <Svg Width="20" Height="20" Path="@("/Assets/search.svg")"></Svg>
+                        </Button>
+                        <Button Classes="wxButton" BorderThickness="0" Padding="(7.5, 0, 7.5, 0)" Margin="(0, 0, 10, 0)" Background="@("#EDEDED")">
+                            <Svg Width="20" Height="20" Path="@("/Assets/Add.svg")"></Svg>
+                        </Button>
+                    </StackPanel>
+                    <TextBlock FontSize="14"
+                               VerticalAlignment="VerticalAlignment.Center"
+                               HorizontalAlignment="HorizontalAlignment.Center"
+                               FontWeight="FontWeight.Medium">@currentPage.Title</TextBlock>
+                </Panel>
+
+            </Border>
+        }
+        <Border Height="50" Background="@("#f7f7f7")" BorderBrush="@("#d8d8d8")" BorderThickness="(0, 0.3, 0, 0)" DockPanel.Dock="@Dock.Bottom">
+            <Grid ColumnDefinitions="@("*,*,*,*")">
+                @for (int i = 0; i < pageInfos.Count; i++)
+                {
+                    var index = i;
+                    <Button Classes="wxButton" Grid.Column="@index.ToString()" BorderThickness="0" OnClick="@(() => currentPage = pageInfos[index])">
+                        <StackPanel>
+                            <Svg Margin="3" HorizontalAlignment="HorizontalAlignment.Center"
+                                 VerticalAlignment="VerticalAlignment.Center"
+                                 Width="20" Height="20"
+                                 Path="@($"avares://Project5/Assets/{(currentPage == pageInfos[index] ? pageInfos[index].Icon_Fill : pageInfos[index].Icon)}")"></Svg>
+                            <TextBlock Foreground="@(currentPage == pageInfos[index] ? "#07c160" : "#000000")"
+                                       HorizontalAlignment="HorizontalAlignment.Center" VerticalAlignment="VerticalAlignment.Center"
+                                       FontSize="10">@pageInfos[index].Title</TextBlock>
+                        </StackPanel>
+                    </Button>
+                }
+            </Grid>
+        </Border>
+        <Border>
+            <DynamicComponent Type="@currentPage.Page"></DynamicComponent>
+        </Border>
+    </DockPanel>
+</Border>
+
+@code {
+
+    List<PageInfo> pageInfos;
+
+    PageInfo currentPage;
+
+
+    protected override void OnInitialized()
+    {
+        pageInfos = [
+            new PageInfo {
+                Page = typeof(MessagePage),
+                Title = "微信",
+                Icon = "message.svg",
+                Icon_Fill = "message_fill.svg"
+            },
+            new PageInfo {
+                Page = typeof(ContactPage),
+                Title = "通讯录",
+                Icon = "contact.svg",
+                Icon_Fill = "contact_fill.svg"
+            },
+            new PageInfo {
+                Page = typeof(ExplorePage),
+                Title = "发现",
+                Icon = "explore.svg",
+                Icon_Fill = "explore_fill.svg"
+            },
+            new PageInfo {
+                Page = typeof(ProfilePage),
+                Title = "我",
+                Icon = "profile.svg",
+                Icon_Fill = "profile_fill.svg"
+            }
+        ];
+        currentPage = pageInfos.First();
+        base.OnInitialized();
+    }
+
+    class PageInfo
+    {
+        public Type Page;
+        public string Title;
+        public string Icon;
+        public string Icon_Fill;
+    }
+}

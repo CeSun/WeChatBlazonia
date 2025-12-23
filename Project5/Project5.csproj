@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AvaloniaXaml Remove="FakesAssemblies\**" />
+	  <Compile Remove="FakesAssemblies\**" />
+	  <Content Remove="FakesAssemblies\**" />
+	  <EmbeddedResource Remove="FakesAssemblies\**" />
+	  <None Remove="FakesAssemblies\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" />
+		<PackageReference Include="Avalonia.Fonts.Inter" />
+		<PackageReference Include="Avalonia.Svg.Skia" />
+		<PackageReference Include="Avalonia.Themes.Simple" />
+		<PackageReference Include="CommunityToolkit.Mvvm" />
+		<PackageReference Include="Blazonia" />
+		<PackageReference Include="Microsoft.QualityTools.Testing.Fakes" />
+		<PackageReference Include="Avalonia.Diagnostics">
+			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AdditionalDesignTimeBuildInput Remove="FakesAssemblies\**" />
+	</ItemGroup>
+
+</Project>
