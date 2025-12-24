@@ -1,0 +1,34 @@
+﻿@using Avalonia.Controls
+@using Avalonia.Layout
+@using Avalonia.Media
+@using Blazonia.Components;
+
+<Border BorderBrush="@("#d8d8d8")" BorderThickness="(0, 0, 0, 0.3)">
+    <Button Classes="wxItemButton" Padding="0" HorizontalContentAlignment="HorizontalAlignment.Stretch" OnClick="OnClick">
+        <Panel>
+            <DockPanel>
+                <Border Padding="(15, 0, 15, 0)" DockPanel.Dock="@Dock.Right">
+                    <Svg Width="15" Height="15" Path="/Assets/right.svg"></Svg>
+                </Border>
+                <Border Padding="(0, 13, 0, 13)" DockPanel.Dock="@Dock.Left">
+                    <StackPanel Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.Left">
+                        <Border Padding="(10, 0, 10, 0)"><Svg Width="20" Height="20" Path="@Icon" /></Border>
+                        <Label FontSize="14" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">@Title</Label>
+                    </StackPanel>
+                </Border>
+            </DockPanel>
+        </Panel>
+    </Button>
+</Border>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Icon { get; set; }= string.Empty;
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
+}

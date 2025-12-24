@@ -1,0 +1,14 @@
+﻿@using Blazonia.Components;
+@page "/pengyouquan"
+
+@inject INavigation Navigation;
+<Border Background="@("#ffffff")">
+    <Button OnClick="OnBackButtonClick">返回</Button>
+</Border>
+
+@code {
+    void OnBackButtonClick()
+    {
+        Navigation.PopAsync();
+    }
+}

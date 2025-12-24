@@ -12,6 +12,20 @@
 		<Style Selector="Button.wxButton:pressed /template/ ContentPresenter#PART_ContentPresenter">
 			<Setter Property="Background" Value="Transparent"/>
 		</Style>
+		<Style Selector="Button.wxItemButton">
+			<Setter Property="BorderThickness" Value="0">
+				
+			</Setter>
+		</Style>
+		
+		<Style Selector="Button.wxItemButton > Panel">
+				<Setter Property="Background" Value="#FFFFFF"/>
+		</Style>
+
+		<Style Selector="Button.wxItemButton:pressed > Panel">
+			
+				<Setter Property="Background" Value="#e5e5e5"/>
+		</Style>
 	</UserControl.Styles>
 	<Design.DataContext>
 		<!-- This only sets the DataContext for the previewer in an IDE,
@@ -19,5 +33,5 @@
 		<vm:MainViewModel />
 	</Design.DataContext>
 
-	<b:BlazoniaControl x:TypeArguments="pages:MainPage"/>
+	<b:BlazoniaNavigationControl x:TypeArguments="pages:MainPage"/>
 </UserControl>

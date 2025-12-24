@@ -1,14 +1,27 @@
-﻿@using Avalonia.Interactivity
+﻿@using Avalonia.Controls
+@using Avalonia.Interactivity
 @using Avalonia.Layout
+@using Project5.Components
 
+@inject INavigation Navigation;
 
+<Border Background="@("#EDEDED")">
+    <StackPanel>
+        <WxItem Title="朋友圈" Icon="/Assets/pyq.svg" OnClick="OnClick"></WxItem>
 
-<Border Theme="@("CardBorder")">
-    <StackPanel HorizontalAlignment="HorizontalAlignment.Center" VerticalAlignment="VerticalAlignment.Center">
-        <Label FontSize="20" HorizontalAlignment="HorizontalAlignment.Center">发现</Label>
+        <Border>
+            <StackPanel Margin="(0, 10, 0, 10)">
+                <WxItem Title="视频号" Icon="/Assets/sph.svg"></WxItem>
+                <WxItem Title="直播" Icon="/Assets/zb.svg"></WxItem>
+            </StackPanel>
+        </Border>
+        <WxItem Title="听一听" Icon="/Assets/yy.svg"></WxItem>
     </StackPanel>
 </Border>
 
 @code {
-
+    void OnClick()
+    {
+        Navigation.NavigateToAsync("pengyouquan");
+    }
 }
