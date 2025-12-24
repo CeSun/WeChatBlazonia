@@ -32,8 +32,4 @@
 		</PackageReference>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <AdditionalDesignTimeBuildInput Remove="FakesAssemblies\**" />
-	</ItemGroup>
-
 </Project>

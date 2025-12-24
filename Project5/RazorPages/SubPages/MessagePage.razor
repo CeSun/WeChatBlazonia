@@ -1,14 +1,48 @@
-﻿@using Avalonia.Interactivity
+﻿@using Avalonia.Controls
+@using Avalonia.Interactivity
 @using Avalonia.Layout
+@using Avalonia.Media
+@using Project5.Components
 
 
-
-<Border Theme="@("CardBorder")">
-    <StackPanel HorizontalAlignment="HorizontalAlignment.Center" VerticalAlignment="VerticalAlignment.Center">
-        <Label FontSize="20" HorizontalAlignment="HorizontalAlignment.Center">微信</Label>
+<ScrollViewer VerticalScrollBarVisibility="AC.Primitives.ScrollBarVisibility.Hidden" AllowAutoHide="true">
+    <StackPanel>
+        @for (int i = 0; i < maxMessage; i++)
+        {
+            int index = i;
+            <WxSessionItem Name="@("测试" + @index)"
+                           Message="一个是样式，一个是基于这个样式扩展的组件"
+                           Muted="@(Random.Shared.NextInt64() % 2 == 0)"
+                           Avatar="avares://Project5/Assets/avatar2.jpg"
+                           Time="@GetRandomTimeOnly()"></WxSessionItem>
+            if (index == maxMessage - 1)
+            {
+                <Border BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.2)" Height="0.2"></Border>
+            }
+            else
+            {
+                <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.2)" Height="0.2"></Border>
+            }
+        }
     </StackPanel>
-</Border>
 
+</ScrollViewer>
 @code {
 
+    private readonly int maxMessage = 20;
+    private static readonly Random _random = new Random();
+
+    public static TimeOnly GetRandomTimeOnly()
+    {
+        // 随机小时（0-23）
+        int hour = _random.Next(0, 24);
+        // 随机分钟（0-59）
+        int minute = _random.Next(0, 60);
+        // 随机秒（0-59）
+        int second = _random.Next(0, 60);
+        // 可选：随机毫秒（0-999）
+        int millisecond = _random.Next(0, 1000);
+
+        return new TimeOnly(hour, minute, second, millisecond);
+    }
 }
