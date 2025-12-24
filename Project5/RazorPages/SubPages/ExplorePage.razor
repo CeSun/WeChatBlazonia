@@ -7,15 +7,20 @@
 
 <Border Background="@("#EDEDED")">
     <StackPanel>
-        <WxItem Title="朋友圈" Icon="/Assets/pyq.svg" OnClick="OnClick"></WxItem>
+        <Border Margin="(0, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Background="@("#FFFFFF")">
+            <WxItem Title="朋友圈" Icon="/Assets/pyq.svg" OnClick="OnClick"></WxItem>
+        </Border>
 
-        <Border>
-            <StackPanel Margin="(0, 10, 0, 10)">
+        <Border Margin="(0, 10, 0, 10)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0.3, 0, 0.3)" Background="@("#FFFFFF")">
+            <StackPanel>
                 <WxItem Title="视频号" Icon="/Assets/sph.svg"></WxItem>
+                <Border Margin="(42, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
                 <WxItem Title="直播" Icon="/Assets/zb.svg"></WxItem>
             </StackPanel>
         </Border>
-        <WxItem Title="听一听" Icon="/Assets/yy.svg"></WxItem>
+        <Border Margin="(0, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0.3, 0, 0.3)" Background="@("#FFFFFF")">
+            <WxItem Title="听一听" Icon="/Assets/yy.svg"></WxItem>
+        </Border>
     </StackPanel>
 </Border>
 

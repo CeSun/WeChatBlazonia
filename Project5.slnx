@@ -4,7 +4,7 @@
     <File Path="rd.xml" />
   </Folder>
   <Project Path="Project5.Android/Project5.Android.csproj">
-    <Deploy Solution="Debug|*" />
+    <Deploy />
   </Project>
   <Project Path="Project5.Browser/Project5.Browser.csproj" />
   <Project Path="Project5.Desktop/Project5.Desktop.csproj" />
