@@ -35,9 +35,9 @@
                     var index = i;
                     <Button Classes="wxButton" Grid.Column="@index.ToString()" BorderThickness="0" OnClick="@(() => currentPage = pageInfos[index])">
                         <StackPanel>
-                            <Svg Margin="3" HorizontalAlignment="HorizontalAlignment.Center"
+                            <Svg  HorizontalAlignment="HorizontalAlignment.Center"
                                  VerticalAlignment="VerticalAlignment.Center"
-                                 Width="20" Height="20"
+                                 Width="25" Height="25"
                                  Path="@($"avares://Project5/Assets/{(currentPage == pageInfos[index] ? pageInfos[index].Icon_Fill : pageInfos[index].Icon)}")"></Svg>
                             <TextBlock Foreground="@(currentPage == pageInfos[index] ? "#07c160" : "#000000")"
                                        HorizontalAlignment="HorizontalAlignment.Center" VerticalAlignment="VerticalAlignment.Center"
