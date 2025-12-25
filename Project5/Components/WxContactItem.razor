@@ -1,0 +1,26 @@
+﻿@using Avalonia.Controls
+@using Avalonia.Layout
+@using Avalonia.Media
+@using Blazonia.Components
+@using System.IO
+
+<Button Classes="wxButton wxItemButton" HorizontalContentAlignment="HorizontalAlignment.Stretch" BorderThickness="0" Padding="0">
+    <Panel>
+        <Border Padding="(0, 0, 20, 0)">
+            <DockPanel VerticalAlignment="VerticalAlignment.Center">
+                <Border Margin="(15, 10, 10, 10)" Height="35" Width="35" DockPanel.Dock="@Dock.Left" CornerRadius="5" ClipToBounds="true">
+                    <Image Stretch="Stretch.Uniform" Source="Avatar" />
+                </Border>
+                <TextBlock VerticalAlignment="VerticalAlignment.Center" FontSize="14" Text="@Name"></TextBlock>
+            </DockPanel>
+        </Border>
+    </Panel>
+</Button>
+
+@code {
+    [Parameter]
+    public string Name { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Avatar { get; set; } = string.Empty;
+}

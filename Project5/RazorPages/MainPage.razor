@@ -10,14 +10,14 @@
     <DockPanel>
         @if(currentPage?.Title != "我")
         {
-            <Border Height="40" Background="@("#EDEDED")" DockPanel.Dock="@Dock.Top" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.2)">
+            <Border Height="40" Background="@("#EDEDED")" DockPanel.Dock="@Dock.Top" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)">
                 <Panel>
                     <StackPanel Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.Right">
                         <Button Classes="wxButton" BorderThickness="0" Padding="(7.5, 0, 7.5, 0)" Background="@("#EDEDED")">
-                            <Svg Width="20" Height="20" Path="@("/Assets/search.svg")"></Svg>
+                            <Svg Width="17" Height="17" Path="@("/Assets/search.svg")"></Svg>
                         </Button>
                         <Button Classes="wxButton" BorderThickness="0" Padding="(7.5, 0, 7.5, 0)" Margin="(0, 0, 10, 0)" Background="@("#EDEDED")">
-                            <Svg Width="20" Height="20" Path="@("/Assets/Add.svg")"></Svg>
+                            <Svg Width="17" Height="17" Path="@("/Assets/Add.svg")"></Svg>
                         </Button>
                     </StackPanel>
                     <TextBlock FontSize="14"
@@ -28,7 +28,7 @@
 
             </Border>
         }
-        <Border Height="50" Background="@("#f7f7f7")" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0.2, 0, 0)" DockPanel.Dock="@Dock.Bottom">
+        <Border Height="50" Background="@("#f7f7f7")" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0.3, 0, 0)" DockPanel.Dock="@Dock.Bottom">
             <Grid ColumnDefinitions="@("*,*,*,*")">
                 @for (int i = 0; i < pageInfos.Count; i++)
                 {

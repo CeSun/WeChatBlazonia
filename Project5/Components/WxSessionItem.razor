@@ -2,29 +2,31 @@
 @using Avalonia.Layout
 @using Avalonia.Media
 @using Blazonia.Components
-
-<Border Padding="(0, 0, 20, 0)">
-    <DockPanel>
-        <Border Margin="(15, 10, 10, 10)" Height="40" Width="40" DockPanel.Dock="@Dock.Left" CornerRadius="5" ClipToBounds="true">
-            <Image Stretch="Stretch.Uniform" Source="Avatar" />
-        </Border>
-        <StackPanel VerticalAlignment="VerticalAlignment.Center">
+<Button Classes="wxButton wxItemButton" HorizontalContentAlignment="HorizontalAlignment.Stretch" BorderThickness="0" Padding="0">
+    <Panel>
+        <Border Padding="(0, 0, 20, 0)">
             <DockPanel>
-                <TextBlock FontSize="12" Foreground="@("#B4B4B4")" DockPanel.Dock="@Dock.Right" Text="@Time.ToString("HH:mm")"></TextBlock>
-                <TextBlock FontSize="14" Text="@Name"></TextBlock>
-            </DockPanel>
+                <Border Margin="(15, 10, 10, 10)" Height="40" Width="40" DockPanel.Dock="@Dock.Left" CornerRadius="5" ClipToBounds="true">
+                    <Image Stretch="Stretch.Uniform" Source="Avatar" />
+                </Border>
+                <StackPanel VerticalAlignment="VerticalAlignment.Center">
+                    <DockPanel>
+                        <TextBlock FontSize="12" Foreground="@("#B4B4B4")" DockPanel.Dock="@Dock.Right" Text="@Time.ToString("HH:mm")"></TextBlock>
+                        <TextBlock FontSize="14" Text="@Name"></TextBlock>
+                    </DockPanel>
 
-            <DockPanel Margin="(0, 4, 0, 0)">
-                @if (Muted)
-                {
-                    <Svg DockPanel.Dock="@Dock.Right" Width="15" Height="15" Path="/Assets/jy.svg"></Svg>
-                }
-                <TextBlock FontSize="11" TextTrimming="@TextTrimming.WordEllipsis" Foreground="@("#B4B4B4")" Text="@Message"></TextBlock>
+                    <DockPanel Margin="(0, 4, 0, 0)">
+                        @if (Muted)
+                        {
+                            <Svg DockPanel.Dock="@Dock.Right" Width="15" Height="15" Path="/Assets/jy.svg"></Svg>
+                        }
+                        <TextBlock FontSize="11" TextTrimming="@TextTrimming.WordEllipsis" Foreground="@("#B4B4B4")" Text="@Message"></TextBlock>
+                    </DockPanel>
+                </StackPanel>
             </DockPanel>
-        </StackPanel>
-    </DockPanel>
-</Border>
-
+        </Border>
+    </Panel>
+</Button>
 @code {
     [Parameter]
     public string Name { get; set; } = string.Empty;

@@ -1,14 +1,63 @@
 ﻿@using Avalonia.Interactivity
 @using Avalonia.Layout
+@using Project5.Components
 
 
 
-<Border Theme="@("CardBorder")">
-    <StackPanel HorizontalAlignment="HorizontalAlignment.Center" VerticalAlignment="VerticalAlignment.Center">
-        <Label FontSize="20" HorizontalAlignment="HorizontalAlignment.Center">联系人</Label>
+<ScrollViewer VerticalScrollBarVisibility="AC.Primitives.ScrollBarVisibility.Hidden" AllowAutoHide="true">
+    <StackPanel>
+
+        <WxContactItem Name="新的朋友" Avatar="avares://Project5/Assets/xdpy.png"></WxContactItem>
+        <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
+        <WxContactItem Name="仅聊天的朋友" Avatar="avares://Project5/Assets/jltdpy.png"></WxContactItem>
+        <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
+        <WxContactItem Name="群聊" Avatar="avares://Project5/Assets/ql.png"></WxContactItem>
+        <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
+        <WxContactItem Name="标签" Avatar="avares://Project5/Assets/biaoqian.png"></WxContactItem>
+        <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
+        <WxContactItem Name="公众号" Avatar="avares://Project5/Assets/gzh2.png"></WxContactItem>
+        <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
+        <WxContactItem Name="服务号" Avatar="avares://Project5/Assets/fwh.png"></WxContactItem>
+        <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
+
+        <WxContactGroupItem GroupName="星标用户"></WxContactGroupItem>
+        @for (int i = 0; i < maxContact; i++)
+        {
+            if (i == 2)
+            {
+                <WxContactGroupItem GroupName="A"></WxContactGroupItem>
+            }
+            if (i == 5)
+            {
+                <WxContactGroupItem GroupName="B"></WxContactGroupItem>
+            }
+            
+            if (i == 10)
+            {
+                <WxContactGroupItem GroupName="C"></WxContactGroupItem>
+            }
+            if (i == 14)
+            {
+                <WxContactGroupItem GroupName="S"></WxContactGroupItem>
+            }
+            if (i == 17)
+            {
+                <WxContactGroupItem GroupName="Q"></WxContactGroupItem>
+            }
+            if (i == 25)
+            {
+                <WxContactGroupItem GroupName="Z"></WxContactGroupItem>
+            }
+            <WxContactItem Name="@("用户名" + i)" Avatar="avares://Project5/Assets/avatar2.jpg"></WxContactItem>
+            <Border Margin="(60, 0, 0, 0)" BorderBrush="@("#E6E6E6")" BorderThickness="(0, 0, 0, 0.3)" Height="0.3"></Border>
+        }
+        <Border Padding="(0, 20, 0, 20)">
+            <TextBlock FontSize="13" Foreground="@("#6c6c6c")" HorizontalAlignment="HorizontalAlignment.Center" Text="@(maxContact + "个朋友")"></TextBlock>
+
+        </Border>
     </StackPanel>
-</Border>
+</ScrollViewer>
 
 @code {
-
+    int maxContact = 30;
 }

@@ -1,0 +1,11 @@
+﻿@using Blazonia.Components;
+
+<Border Background="@("#EDEDED")" Padding="(15, 5, 0, 5)">
+    <TextBlock FontSize="10" Foreground="@("#6c6c6c")" Text="">@GroupName</TextBlock>
+</Border>
+
+@code {
+    [Parameter]
+    public string GroupName { get; set; } = string.Empty;
+
+}
